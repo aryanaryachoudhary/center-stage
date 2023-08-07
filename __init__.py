@@ -65,7 +65,7 @@ Osize = ImgRatio(Csize, Crop_Aspect)
 ZOOM_GLO = True
    
 cap = cv.VideoCapture(0)
-face_cascade = cv.CascadeClassifier(cv.data.haarcascades + "haarcascade_frontface_default.xml")
+face_cascade = cv.CascadeClassifier(cv.data.haarcascades + "haarcascade_frontalface_default.xml")
 eye_cascade = cv.CascadeClassifier(cv.data.haarcascades + "haarcascade_eye.xml")
 
 SCREEN_SIZE = np.array(cap.read()[1].shape[:2][::-1], int)
