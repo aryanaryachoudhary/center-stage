@@ -68,6 +68,7 @@ cap = cv.VideoCapture(0)
 face_cascade = cv.CascadeClassifier(cv.data.haarcascades + "haarcascade_frontalface_default.xml")
 eye_cascade = cv.CascadeClassifier(cv.data.haarcascades + "haarcascade_eye.xml")
 
+
 SCREEN_SIZE = np.array(cap.read()[1].shape[:2][::-1], int)
 
 pos = (SCREEN_SIZE - Csize) // 2
@@ -102,6 +103,13 @@ if (ZOOM_GLO):
                     pos = np.array(pos + InterAmount * (TopLeft - pos), int)
                 else:
                     pos
+
+            # # Adjust zoom level based on the number of faces
+            # if len(face) > 1:
+            #     zooml = max(zooml - 1, 0)  # Zoom out
+            # elif len(face) == 1:
+            #     zooml = min(zooml + 1, 20)  # Zoom in, but limit to a maximum zoom level
+
 
             zooms = np.array(pos + Csize * zooml / 100, int)
             zoome = np.array(pos + Csize - Csize * zooml / 100, int)
